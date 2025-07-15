@@ -47,10 +47,11 @@
 
 \documentclass[]{deedy-resume-openfont}
 \usepackage{fancyhdr}
-    
+\usepackage{graphicx}    
+\usepackage{adjustbox} % 在导言区添加    
 \pagestyle{fancy}
 \fancyhf{}
-    
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -58,16 +59,38 @@
 %     LAST UPDATED DATE
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\lastupdated
+% \lastupdated
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %     TITLE NAME
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\namesection{张}{君 涵}{ \urlstyle{same}\href{mailto:2907402968@qq.com}{2907402968@qq.com} | 1520 6110 955
+\namesection{张}{君 涵}{
+    \makebox[\textwidth][c]{%
+        \urlstyle{same}\href{mailto:2907402968@qq.com}{email：2907402968@qq.com} | phone：1520 6110 955
+        
+    }
+    \makebox[\textwidth][r]{%
+        \raisebox{0pt}[0pt][0pt]{\includegraphics[width=2.5cm]{bbb.jpeg}}
+        \hspace{0.02cm} % 可调距离，图片与右边界的距离
+    }
+    {年龄：23} | {籍贯：江苏} | {意向岗位: 嵌入式开发工程师/c,c++工程师}
 }
 
+% \namesection{张}{君 涵}{
+%     \makebox[\textwidth][c]{%
+%         \urlstyle{same}\href{mailto:2907402968@qq.com}{2907402968@qq.com} | 1520 6110 955
+%         % \hfill
+%         \hspace{4.5cm} 
+%         \raisebox{0pt}[0pt][0pt]{\includegraphics[width=2cm]{bbb.jpeg}}
+%     }
+% }
+% \namesection{张}{君 涵}{%
+%   \urlstyle{same}\href{mailto:2907402968@qq.com}{2907402968@qq.com} | 1520 6110 955%
+%   \hfill
+%   \adjustbox{valign=t}{\includegraphics[width=2cm,height=3.5em,keepaspectratio]{aaa.jpg}}%
+% }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %     COLUMN ONE
@@ -193,7 +216,7 @@ CET6 \\
 \section{实习经历}
 \sectionsep
 \runsubsection{南京丹迪克科技开发有限公司}
-\descript{学生参与者,参与\href{https://github.com/purplefrigid/Zynq-Simple-Oscilloscope.git}{\bf 基于zynq7020的多功能示波器}}
+\descript{participant,\href{https://github.com/purplefrigid/Zynq-Simple-Oscilloscope.git}{\bf 基于zynq7020的多功能示波器}}
 \location{2023.01 - 2023.05 | 远程}
 \vspace{\topsep}
 \begin{tightemize}
@@ -236,10 +259,10 @@ CET6 \\
 \section{项目}
 \sectionsep
 \runsubsection{\href{https://github.com/purplefrigid/Intelligent-chatbot-design-based-on-sg2002.git}{\bf 基于SG2002的智能聊天机器人}}
-\descript{Maintainer}
+\descript{leader}
 \location{2025.03}
 \begin{tightemize}
-    \item 部署yolov5和ollama到SG2002上
+    \item 部署yolov5和ollama到算能SG2002开发板上
     \item 部署kaldi到树莓派4b上实现语音识别
     \item 在SG2002小核上部署freetos，通过iic控制oled
     \item 通过mailbox实现SG2002大核和小核通信，通过ollama生成词实现不同表情切换
@@ -248,20 +271,20 @@ CET6 \\
     \end{tightemize}
 \sectionsep
 
-\runsubsection{\bf 基于rk3568和树莓派的智能监控系统设计}
-\descript{Maintainer}
+\runsubsection{\bf 基于RV1106和imx6ull的智能监控系统设计}
+\descript{leader}
 \location{2024.10}
 \begin{tightemize}
-    \item 在rk3568上移植uboot，Linux内核，buildroot根文件系统
+    \item 在幸狐rv1106开发板上移植uboot，Linux内核，buildroot根文件系统
     \item 添加设备树，编写摄像头驱动
     \item 移植ffmpeg，搭建流服务器，实现rtmp推流
-    \item 在树莓派上移植yolov5
-    \item 利用qt编写ui界面，显示经yolov5预测的监控视频
+    \item 在imx6ull移植yolov5和QT
+    \item 编写ui界面，显示经yolov5预测的监控视频
     \end{tightemize}
 \sectionsep
 
 \runsubsection{\href{https://github.com/purplefrigid/smart_car.git}{\bf 基于英飞凌TC264的竞速智能车设计}}
-\descript{Owner}
+\descript{participant}
 \location{2021.7}
 \begin{tightemize}
     \item 编写摄像头驱动，舵机驱动
@@ -271,25 +294,24 @@ CET6 \\
     \end{tightemize}
 \sectionsep
 
-\runsubsection{\bf 基于stm32的智能送药小车设计}
-\descript{Maintainer}
-\location{2022.10}
-\begin{tightemize}
-    \item 编写舵机驱动，编码器电机驱动
-    \item 基于Openmv的巡线算法设计
-    \end{tightemize}
-\sectionsep
-% \section{项目与论文}
-% \sectionsep
-% \runsubsection{\href{https://github.com/caicloud/cyclone}{\bf Cyclone}}
+% \runsubsection{\bf 基于stm32的智能送药小车设计}
 % \descript{Maintainer}
-% \location{2016.11}
+% \location{2022.10}
 % \begin{tightemize}
-%     \item 基于 Docker 的持续集成与持续部署系统
-%     \item 本科毕业设计，与才云科技合作开发，在 GitHub 上获得 \textbf{440 stars}
-%     \item 调研其他开源实现，确定工作流程和架构选型，实现 YAML parser 和 Docker 的运行时集成
+%     \item 编写舵机驱动，编码器电机驱动
+%     \item 基于Openmv的巡线算法设计
 %     \end{tightemize}
 % \sectionsep
+\section{研究方向与论文}
+\sectionsep
+\runsubsection{\bf 基于机器学习的边缘电磁结构设计与性能优化研究}
+\descript{leader}
+\location{论文}
+\begin{tightemize}
+    \item Design of honeycomb structure wing leading edge based on NN and RPSO（AWPL，中科院二区，第一作者），under rewiew
+    \item Bayesian active learning sampling optimisation for predicting RCS characteristics of gradient honeycomb structures(CMC，第一作者)，under rewiew
+    \end{tightemize}
+\sectionsep
 
 % \runsubsection{\href{https://github.com/gaocegege/scrala}{\bf Scrala}}
 % \descript{Owner}
@@ -330,8 +352,7 @@ CET6 \\
 \section{所获奖项} 
 \begin{tabular}{rll}
 2021         & 二等奖  & 全国大学生智能车大赛 \\
-2021	     & 二等奖  & 大学生电子设计大赛 \\
-2021	     & 奖学金  & 校科技创新奖学金 \\
+% 2021	     & 奖学金  & 校科技创新奖学金 \\
 2022	     & 三等奖  & 蓝桥杯嵌入式赛道 \\
 2023         & 奖学金  & 校学业优秀奖学金\\
 2024	     & 奖学金  & 校研究生奖学金 \\
